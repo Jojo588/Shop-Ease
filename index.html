@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopEase</title>
+  <link rel="stylesheet" href="Ecommercecss.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="logo"><i class="fas fa-store"></i> ShopEase</div>
+      <div class="nav-actions">
+        <button id="cartToggle" class="cart-toggle">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cartBadge" class="cart-badge">
+            0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="filters-section">
+      <div class="search-container">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search for products..." />
+        </div>
+      </div>
+      <div class="filters">
+        <div class="filter-group">
+          <label for="categoryFilter">Category</label>
+          <select id="categoryFilter">
+            <option value="">All</option>
+            <option value="men's clothing">Men</option>
+            <option value="women's clothing">Women</option>
+            <option value="jewelery">Jewelry</option>
+            <option value="electronics">Electronics</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="sortFilter">Sort</label>
+          <select id="sortFilter">
+            <option value="">Default</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <div id="loadingSpinner" class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Loading products...</p>
+    </div>
+
+    <div id="productsGrid" class="products-grid"></div>
+    <p id="noProducts" class="no-products" style="display: none;">No products found.</p>
+  </main>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="cart-modal">
+    <div id="cartOverlay" class="cart-overlay"></div>
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button id="cartClose" class="cart-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="cart-content">
+        <div id="cartEmpty" class="cart-empty">
+          <i class="fas fa-shopping-cart"></i>
+          <p>Your cart is empty</p>
+        </div>
+        <div id="cartItems"></div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <strong>Total: <span id="totalPrice">$0.00</span></strong>
+        </div>
+        <button id="checkoutBtn" class="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="checkout-modal">
+    <div id="checkoutOverlay" class="checkout-overlay"></div>
+    <div class="checkout-panel">
+      <div class="checkout-header">
+        <h2>Checkout</h2>
+        <button id="checkoutClose" class="checkout-close"><i class="fas fa-times"></i></button>
+      </div>
+      <form id="checkoutForm" class="checkout-form">
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input type="text" id="fullName" placeholder="Enter your full name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="Enter your email" required />
+        </div>
+        <div class="form-group">
+          <label for="address">Shipping Address *</label>
+          <input type="text" id="address" placeholder="Enter your address" required />
+        </div>
+        <div class="form-group">
+          <strong>Order Total: <span id="summaryPrice">$0.00</span></strong>
+        </div>
+        <button type="submit" class="place-order-btn">Place Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div id="successMessage" class="success-message">
+    <div class="success-content">
+      <i class="fas fa-check-circle"></i>
+      <h3>Order Placed Successfully!</h3>
+      <p>Thank you for shopping with ShopEase!</p>
+    </div>
+  </div>
+
+  <script src="ecommercejs.js"></script>
+</body>
+</html>
